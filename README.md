@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 ## RUNNING THE TESTS
-You can find the tests in the "tests" folder. To run any test click on the green triangle in the left side of the test function or ctrl+shift+f10 ![pentru readmeFILE](https://github.com/AugustinIonutz/SIMPLE_BOOK_API_AUTOMATION_TESTING/assets/164404789/14319feb-4de9-4dd0-a9ba-a944bc42030f)
+You can find the tests in the "tests" folder. To run any test click on the green arrow in the left side of the test function or ctrl+shift+f10 ![pentru readmeFILE](https://github.com/AugustinIonutz/SIMPLE_BOOK_API_AUTOMATION_TESTING/assets/164404789/14319feb-4de9-4dd0-a9ba-a944bc42030f)
 
 
 ## REPORTS
