@@ -2,7 +2,6 @@ import requests
 import random
 
 class BookApi:
-
     _BASE_URL = "https://simple-books-api.glitch.me"
     _STATUS_ENDPOINT = "/status"
     _BOOKS_ENDPOINT = "/books"
@@ -39,15 +38,17 @@ class BookApi:
         URL = self._get_book_by_id_route(book_id)
         return requests.get(url=URL)
 
-    def get_api_books_by_filters(self, limit, book_type):
-        URL = self._get_books_route()
+    def get_books_by_filters(self, book_type="", limit=""):
+        URL = self._BASE_URL + self._BOOKS_ENDPOINT
 
-        query_params = {
-            "limit": limit,
-            "type": book_type
-        }
+        if book_type != "" and limit == "":
+            URL += f"?type={book_type}"
+        elif book_type == "" and limit != "":
+            URL += f"?limit={limit}"
+        elif book_type != "" and limit != "":
+            URL += f"?type={book_type}&limit={limit}"
 
-        return requests.get(url=URL, params=query_params)
+        return requests.get(url=URL)
 
     def get_api_orders_response(self, access_token):
         URL = self._get_orders_route()
@@ -58,7 +59,17 @@ class BookApi:
 
         return requests.get(url=URL, headers=headers)
 
+    def get_api_orders_by_id_response(self, access_token, order_id):
+        URL = self._get_order_by_id_route(order_id)
+
+        headers = {
+            'Authorization': f'Bearer {access_token}'
+        }
+
+        return requests.get(url=URL, headers=headers)
+
     def post_api_clients(self):
+        # declare a random number to prevent error when creating a new user
         URL = self._get_api_clients_route()
         random_number = random.randint(1, 9999999999999999)
 
@@ -96,5 +107,11 @@ class BookApi:
 
         return requests.patch(url=URL, json=body, headers=headers)
 
+    def delete_books_order(self, access_token, order_id):
+        URL = self._get_order_by_id_route(order_id)
 
+        headers = {
+            'Authorization': f'Bearer {access_token}'
+        }
 
+        return requests.delete(url=URL, headers=headers)
