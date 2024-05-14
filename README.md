@@ -7,7 +7,7 @@ The scope of this application is to test the functionalities of the Simple Book 
 
 The documentation can be found [here](https://github.com/vdespa/introduction-to-postman-course/blob/main/simple-books-api.md) 
 
-## INTSTALLATION
+## INSTALLATION
 In order to use this project you need python (version 3.12), pip to be installed. Also you need the following libraries: requests (version 2.31.0), pytest (version 8.1.1) and pytest-html (version 4.1.1). To install them (libraries), run the Terminal command:
 
 ```commandline
